@@ -1,0 +1,166 @@
+#!/bin/bash
+
+# GrabText Privacy Policy - GitHub Pages Setup Script
+# Run this script on your Mac to upload the privacy policy
+
+echo "🚀 Setting up GrabText privacy policy on GitHub Pages..."
+echo ""
+
+# Create temporary directory
+TEMP_DIR=~/Desktop/grabtext-privacy-upload
+mkdir -p $TEMP_DIR
+cd $TEMP_DIR
+
+# Initialize git
+git init
+git branch -M main
+
+# Create index.html with privacy policy
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrabText - Privacy Policy</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 24px;
+  color: #1a1a1a;
+  line-height: 1.7;
+  background: #fff;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1A8FFF;
+  margin-bottom: 12px;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: #2d2d2d;
+}
+p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.last-updated {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+strong {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+a {
+  color: #1A8FFF;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<h1>GrabText — Privacy Policy</h1>
+<p class="last-updated"><strong>Last updated:</strong> May 18, 2026</p>
+
+<h2>Overview</h2>
+<p>GrabText is committed to protecting your privacy. This extension operates entirely on your device with <strong>zero data collection</strong>. We do not collect, store, transmit, or share any personal information or usage data.</p>
+
+<h2>No Data Collection</h2>
+<p>GrabText does not collect any data about you or your usage of the extension. This includes:</p>
+<p>
+• No screenshots are uploaded or stored on any server<br>
+• No text you extract is transmitted anywhere<br>
+• No browsing history is tracked<br>
+• No analytics or telemetry of any kind<br>
+• No cookies or tracking pixels<br>
+• No user accounts or registration required
+</p>
+
+<h2>How GrabText Works</h2>
+<p>All OCR (Optical Character Recognition) processing happens <strong>entirely on your device</strong> using Tesseract.js, an open-source library that runs in your browser. Your screenshots never leave your computer.</p>
+
+<h2>Local Storage Only</h2>
+<p>GrabText stores your recent text extractions locally in Chrome's local storage on your own device. This data:</p>
+<p>
+• Never leaves your device<br>
+• Is not accessible to us or any third party<br>
+• Can be cleared at any time by uninstalling the extension<br>
+• Is stored only for your convenience (viewing history)
+</p>
+
+<h2>No Third-Party Services</h2>
+<p>GrabText does not use any third-party analytics, advertising networks, or external services. The extension is completely self-contained and offline-capable.</p>
+
+<h2>Permissions Explained</h2>
+<p>GrabText requests the following Chrome permissions:</p>
+<p>
+<strong>• activeTab:</strong> Allows the extension to capture screenshots of the current tab when you activate it<br>
+<strong>• storage:</strong> Stores your recent extractions locally on your device<br>
+<strong>• clipboardWrite:</strong> Copies extracted text to your clipboard
+</p>
+<p>These permissions are used solely for the core functionality of the extension and nothing else.</p>
+
+<h2>Open Source</h2>
+<p>GrabText uses open-source OCR technology (Tesseract.js). The extension's code does not contain any tracking, analytics, or data collection mechanisms.</p>
+
+<h2>Children's Privacy</h2>
+<p>GrabText does not knowingly collect any information from anyone, including children under 13. Since we collect no data at all, the extension is safe for users of all ages.</p>
+
+<h2>Changes to This Policy</h2>
+<p>If we make any changes to this privacy policy, we will update the "Last updated" date at the top of this page. Continued use of GrabText after changes indicates acceptance of the updated policy.</p>
+
+<h2>Contact Us</h2>
+<p>If you have any questions about this privacy policy or GrabText, please contact us at:</p>
+<p><strong>Email:</strong> <a href="mailto:support@grabtext.app">support@grabtext.app</a></p>
+
+<hr style="margin: 48px 0; border: none; border-top: 1px solid #e0e0e0;">
+
+<p style="font-size: 14px; color: #666; text-align: center;">
+© 2026 GrabText. All rights reserved.
+</p>
+
+</body>
+</html>
+EOF
+
+# Create README
+cat > README.md << 'EOF'
+# GrabText Privacy Policy
+
+Privacy policy for the GrabText Chrome Extension.
+
+Live at: https://vipinvishal.github.io/grabtext-privacy
+EOF
+
+# Add files
+git add .
+git commit -m "Add GrabText privacy policy"
+
+# Add remote
+git remote add origin https://github.com/vipinvishal/grabtext-privacy.git
+
+echo ""
+echo "✅ Repository initialized!"
+echo ""
+echo "📤 Now run this command to push:"
+echo ""
+echo "   git push -u origin main"
+echo ""
+echo "Then:"
+echo "1. Go to https://github.com/vipinvishal/grabtext-privacy"
+echo "2. Click Settings → Pages"
+echo "3. Set Source to 'main branch' → Save"
+echo "4. Wait 2 minutes"
+echo "5. Your URL: https://vipinvishal.github.io/grabtext-privacy"
+echo ""
