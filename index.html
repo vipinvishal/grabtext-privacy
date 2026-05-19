@@ -1,28 +1,9 @@
-#!/bin/bash
-
-# GrabText Privacy Policy - GitHub Pages Setup Script
-# Run this script on your Mac to upload the privacy policy
-
-echo "🚀 Setting up GrabText privacy policy on GitHub Pages..."
-echo ""
-
-# Create temporary directory
-TEMP_DIR=~/Desktop/grabtext-privacy-upload
-mkdir -p $TEMP_DIR
-cd $TEMP_DIR
-
-# Initialize git
-git init
-git branch -M main
-
-# Create index.html with privacy policy
-cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GrabText - Privacy Policy</title>
+<title>GrabText - Privacy Policy | ORBIT AI LABS</title>
 <style>
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -32,6 +13,20 @@ body {
   color: #1a1a1a;
   line-height: 1.7;
   background: #fff;
+}
+.company-header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.company-name {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 8px;
 }
 h1 {
   font-size: 32px;
@@ -54,6 +49,7 @@ p {
   color: #666;
   font-size: 14px;
   margin-bottom: 32px;
+  text-align: center;
 }
 strong {
   font-weight: 600;
@@ -66,15 +62,33 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+.footer-company {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.footer-copyright {
+  font-size: 13px;
+  color: #999;
+}
 </style>
 </head>
 <body>
 
-<h1>GrabText — Privacy Policy</h1>
-<p class="last-updated"><strong>Last updated:</strong> May 18, 2026</p>
+<div class="company-header">
+  <div class="company-name">ORBIT AI LABS</div>
+  <h1>GrabText — Privacy Policy</h1>
+  <p class="last-updated"><strong>Last updated:</strong> May 18, 2026</p>
+</div>
 
 <h2>Overview</h2>
-<p>GrabText is committed to protecting your privacy. This extension operates entirely on your device with <strong>zero data collection</strong>. We do not collect, store, transmit, or share any personal information or usage data.</p>
+<p>GrabText, developed by ORBIT AI LABS, is committed to protecting your privacy. This extension operates entirely on your device with <strong>zero data collection</strong>. We do not collect, store, transmit, or share any personal information or usage data.</p>
 
 <h2>No Data Collection</h2>
 <p>GrabText does not collect any data about you or your usage of the extension. This includes:</p>
@@ -111,7 +125,7 @@ a:hover {
 </p>
 <p>These permissions are used solely for the core functionality of the extension and nothing else.</p>
 
-<h2>Open Source</h2>
+<h2>Open Source Technology</h2>
 <p>GrabText uses open-source OCR technology (Tesseract.js). The extension's code does not contain any tracking, analytics, or data collection mechanisms.</p>
 
 <h2>Children's Privacy</h2>
@@ -122,45 +136,20 @@ a:hover {
 
 <h2>Contact Us</h2>
 <p>If you have any questions about this privacy policy or GrabText, please contact us at:</p>
-<p><strong>Email:</strong> <a href="mailto:support@grabtext.app">support@grabtext.app</a></p>
-
-<hr style="margin: 48px 0; border: none; border-top: 1px solid #e0e0e0;">
-
-<p style="font-size: 14px; color: #666; text-align: center;">
-© 2026 GrabText. All rights reserved.
+<p>
+<strong>Email:</strong> <a href="mailto:orbitailabs1@gmail.com">orbitailabs1@gmail.com</a><br>
+<strong>Company:</strong> ORBIT AI LABS
 </p>
+
+<div class="footer">
+  <div class="footer-company">
+    <strong>ORBIT AI LABS</strong><br>
+    Building intelligent tools for the modern web
+  </div>
+  <div class="footer-copyright">
+    © 2026 ORBIT AI LABS. All rights reserved.
+  </div>
+</div>
 
 </body>
 </html>
-EOF
-
-# Create README
-cat > README.md << 'EOF'
-# GrabText Privacy Policy
-
-Privacy policy for the GrabText Chrome Extension.
-
-Live at: https://vipinvishal.github.io/grabtext-privacy
-EOF
-
-# Add files
-git add .
-git commit -m "Add GrabText privacy policy"
-
-# Add remote
-git remote add origin https://github.com/vipinvishal/grabtext-privacy.git
-
-echo ""
-echo "✅ Repository initialized!"
-echo ""
-echo "📤 Now run this command to push:"
-echo ""
-echo "   git push -u origin main"
-echo ""
-echo "Then:"
-echo "1. Go to https://github.com/vipinvishal/grabtext-privacy"
-echo "2. Click Settings → Pages"
-echo "3. Set Source to 'main branch' → Save"
-echo "4. Wait 2 minutes"
-echo "5. Your URL: https://vipinvishal.github.io/grabtext-privacy"
-echo ""
